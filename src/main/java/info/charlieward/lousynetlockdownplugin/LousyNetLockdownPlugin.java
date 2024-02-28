@@ -1,6 +1,7 @@
 package info.charlieward.lousynetlockdownplugin;
 
 import info.charlieward.lousynetlockdownplugin.commands.lockdownInfo;
+import info.charlieward.lousynetlockdownplugin.commands.lockdownToggle;
 import info.charlieward.lousynetlockdownplugin.listeners.playerJoin;
 import info.charlieward.lousynetlockdownplugin.listeners.playerLeave;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,6 +31,7 @@ public final class LousyNetLockdownPlugin extends JavaPlugin {
         }
 
         getCommand("lockdownInfo").setExecutor(new lockdownInfo(this));
+        getCommand("lockdown").setExecutor(new lockdownToggle(this));
 
         getServer().getPluginManager().registerEvents(new playerJoin(this), this);
         getServer().getPluginManager().registerEvents(new playerLeave(this), this);

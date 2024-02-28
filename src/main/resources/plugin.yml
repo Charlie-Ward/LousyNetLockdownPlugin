@@ -9,3 +9,6 @@ commands:
     usage: /lockdownInfo
     permission: LousyNetLockdownPlugin.admin
     description: See the current lockdown information
+  lockdown:
+    usage: /lockdown
+    permission: LousyNetLockdownPlugin.admin
