@@ -21,7 +21,7 @@ public class playerJoin implements Listener {
         if (lockdownState.equals("true")) {
             if(player.hasPermission("LousyNetLockdownPlugin.admin")) {
                 player.sendMessage(ChatColor.RED + "Network is currently in lockdown mode");
-                player.sendMessage(ChatColor.WHITE + "Enabled by: " + ChatColor.GRAY + plugin.jedis.get("lockdownOwner"));
+                player.sendMessage(ChatColor.WHITE + "Enabled by: " + ChatColor.GRAY + plugin.jedis.get("lockdownPlayer"));
                 player.sendMessage(ChatColor.WHITE + "Enabled at: " + ChatColor.GRAY + plugin.jedis.get("lockdownTimeStart"));
             } else {
                 event.setJoinMessage(null);

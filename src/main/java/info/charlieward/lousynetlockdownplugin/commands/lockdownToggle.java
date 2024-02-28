@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class lockdownToggle implements CommandExecutor {
     static LousyNetLockdownPlugin plugin;
@@ -25,11 +26,16 @@ public class lockdownToggle implements CommandExecutor {
                     player.sendMessage(ChatColor.BLUE + "[LousyNet-Lockdown]" + ChatColor.WHITE + "Enabling lockdown");
                     plugin.jedis.set("lockdownState", "true");
                     String playerName = player.getDisplayName();
-                    plugin.jedis.set("lockdownOwner", playerName);
+                    plugin.jedis.set("lockdownPlayer", playerName);
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss - dd/MM/yyyy");
                     LocalDateTime now = LocalDateTime.now();
                     String date = dtf.format(now);
                     plugin.jedis.set("lockdownTimeStart", date);
+
+                    plugin.getPlayerList(player);
+                    System.out.println(Arrays.toString(plugin.playerList));
+                    System.out.println(plugin.playerList.length);
+
                 } else if (lockdownState.equals("true")) {
                     player.sendMessage(ChatColor.BLUE + "[LousyNet-Lockdown] " + ChatColor.WHITE + "Disabling lockdown");
                     plugin.jedis.set("lockdownState", "false");
@@ -47,7 +53,7 @@ public class lockdownToggle implements CommandExecutor {
             if(lockdownState.equals("false")) {
                 System.out.println("[LousyNet-Lockdown] Enabling lockdown");
                 plugin.jedis.set("lockdownState", "true");
-                plugin.jedis.set("lockdownOwner", "Console");
+                plugin.jedis.set("lockdownPlayer", "Console");
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss - dd/MM/yyyy");
                 LocalDateTime now = LocalDateTime.now();
                 String date = dtf.format(now);
