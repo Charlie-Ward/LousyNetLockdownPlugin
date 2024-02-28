@@ -6,7 +6,7 @@
 
   <groupId>info.charlieward</groupId>
   <artifactId>LousyNetLockdownPlugin</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <packaging>jar</packaging>
 
   <name>LousyNet-LockdownPlugin</name>

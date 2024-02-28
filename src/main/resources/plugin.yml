@@ -2,3 +2,10 @@ name: LousyNet-LockdownPlugin
 version: '${project.version}'
 main: info.charlieward.lousynetlockdownplugin.LousyNetLockdownPlugin
 api-version: '1.17'
+authors:
+  - LousyBoi
+commands:
+  lockdownInfo:
+    usage: /lockdownInfo
+    permission: LousyNetLockdownPlugin.admin
+    description: See the current lockdown information
