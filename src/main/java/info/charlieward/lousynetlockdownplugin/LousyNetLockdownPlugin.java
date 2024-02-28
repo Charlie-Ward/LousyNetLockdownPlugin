@@ -12,6 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import redis.clients.jedis.Jedis;
 
+import java.util.Arrays;
+
 public final class LousyNetLockdownPlugin extends JavaPlugin implements PluginMessageListener {
 
     private static LousyNetLockdownPlugin plugin;
@@ -72,6 +74,7 @@ public final class LousyNetLockdownPlugin extends JavaPlugin implements PluginMe
         if(!subchannel.equals("PlayerList")) {
             String server = in.readUTF();
             this.playerList = in.readUTF().split(", ");
+            System.out.println(Arrays.toString(playerList));
         }
 
     }

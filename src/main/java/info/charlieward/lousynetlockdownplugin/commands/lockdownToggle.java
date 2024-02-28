@@ -33,8 +33,6 @@ public class lockdownToggle implements CommandExecutor {
                     plugin.jedis.set("lockdownTimeStart", date);
 
                     plugin.getPlayerList(player);
-                    System.out.println(Arrays.toString(plugin.playerList));
-                    System.out.println(plugin.playerList.length);
 
                 } else if (lockdownState.equals("true")) {
                     player.sendMessage(ChatColor.BLUE + "[LousyNet-Lockdown] " + ChatColor.WHITE + "Disabling lockdown");
